@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Black Friday US to China (Playful)",
+    "headline": "Black Friday Blowout - Don't Miss Out!",
+    "cta": "Shop Now!",
+    "body": "Get 50% off everything before it's too late! Limited stock available. This is a game changer.",
+    "sourceLocale": "en-US",
+    "industry": "E-commerce",
+    "brandTone": "playful",
+    "goal": "sales",
+    "colors": ["red", "black", "white"],
+    "localeTones": { "zh-CN": "playful" }
+  },
+  {
+    "name": "Luxury Fashion US to Saudi (Luxury)",
+    "headline": "Step up your style - Level up your look!",
+    "cta": "Discover Now",
+    "body": "Experience the best thing since sliced bread. Limited edition collection. Don't miss out!",
+    "sourceLocale": "en-US",
+    "industry": "Fashion",
+    "brandTone": "luxury",
+    "goal": "awareness",
+    "colors": ["gold", "black", "white"],
+    "localeTones": { "ar-SA": "luxury" }
+  },
+  {
+    "name": "Food Brand US to India (Friendly)",
+    "headline": "A piece of cake for your family!",
+    "cta": "Order Now",
+    "body": "Enjoy a no-brainer meal deal. Break a leg at your next party!",
+    "sourceLocale": "en-US",
+    "industry": "Food & Beverage",
+    "brandTone": "friendly",
+    "goal": "engagement",
+    "colors": ["green", "orange", "white"],
+    "localeTones": { "hi-IN": "friendly" }
+  }
+]

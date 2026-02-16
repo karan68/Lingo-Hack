@@ -9,6 +9,7 @@ export interface CampaignInput {
   brandTone: string;
   goal: string;
   colors: string[];
+  localeTones?: { [locale: string]: string };
 }
 
 // ===== API Response Types =====
@@ -40,6 +41,12 @@ export interface AdaptationResult {
   colorAnalysis: ColorAnalysis | null;
   explanation: ExplanationResult | null;
   culturalScore: CulturalScore;
+  backTranslation?: {
+    headline: string | null;
+    cta: string | null;
+    body: string | null;
+  };
+  consistencyScore?: number;
   timestamp: string;
   error?: string;
 }
@@ -62,6 +69,8 @@ export interface CulturalAnalysis {
   toneIndicators: ToneIndicator[];
   urgencyLevel: number;
   culturalConflicts: CulturalConflict[];
+  sentiment?: string;
+  emotions?: string[];
 }
 
 export interface Idiom {

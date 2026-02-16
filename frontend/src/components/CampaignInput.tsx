@@ -41,12 +41,10 @@ const GOALS = [
 interface Props {
   onSubmit: (
     campaign: CampaignInput,
-    targetLocales: string[],
-    imageFile: File | null
+    // ...existing code...
   ) => void;
-  loading: boolean;
+  loading?: boolean;
 }
-
 export function CampaignInputForm({ onSubmit, loading }: Props) {
   const [campaign, setCampaign] = useState<CampaignInput>({
     headline: "",
@@ -107,6 +105,10 @@ export function CampaignInputForm({ onSubmit, loading }: Props) {
     e.preventDefault();
     if (targetLocales.length === 0) return;
     onSubmit(campaign, targetLocales, imageFile);
+  };
+
+  const handleToneChange = (locale: string, tone: string) => {
+    setLocaleTones((prev) => ({ ...prev, [locale]: tone }));
   };
 
   return (

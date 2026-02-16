@@ -22,6 +22,25 @@ export function AnalysisDashboard({ analysis }: Props) {
 
   return (
     <div className="glass-card rounded-xl p-5 space-y-4">
+      {/* Sentiment & Emotion */}
+      <div className="flex items-center gap-3 mb-2">
+        <span className="text-xs text-gray-400">Sentiment:</span>
+        <span className={`text-xs font-semibold rounded px-2 py-0.5 ${
+          analysis.sentiment === "positive"
+            ? "bg-emerald-500/10 text-emerald-400"
+            : analysis.sentiment === "negative"
+            ? "bg-red-500/10 text-red-400"
+            : "bg-gray-500/10 text-gray-300"
+        }`}>
+          {analysis.sentiment || "neutral"}
+        </span>
+        <span className="text-xs text-gray-400 ml-4">Emotion:</span>
+        <span className="text-xs text-blue-300">
+          {(analysis.emotions && analysis.emotions.length > 0)
+            ? analysis.emotions.join(", ")
+            : "neutral"}
+        </span>
+      </div>
       <div className="flex items-center justify-between">
         <h3 className="text-sm font-medium text-white">
           Cultural Analysis

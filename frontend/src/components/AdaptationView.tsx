@@ -8,6 +8,9 @@ import {
   Globe,
   Languages,
   Brain,
+  Wand2,
+  Brush,
+    Smile,
 } from "lucide-react";
 import type { AdaptationResult, ImageAnalysisResult } from "../services/types";
 import { CulturalScoreCard } from "./CulturalScoreCard";
@@ -27,6 +30,20 @@ export function AdaptationView({ adaptations, imageAnalysis, onBack }: Props) {
 
   const current = adaptations[selectedLocale];
   if (!current) return null;
+
+  // Advanced feature extraction helpers for backward compatibility
+  // Idiom/Slang localization: try current.culturalAnalysis.idioms or current.idiomSlang
+  const idiomSlang = (current as any).idiomSlang || (current.culturalAnalysis && current.culturalAnalysis.idioms && current.culturalAnalysis.idioms.length > 0
+    ? { localized: current.culturalAnalysis.idioms.map((i: any) => ({ original: i.idiom, localized: i.meaning, explanation: i.risk })) }
+    : null);
+  // Sentiment/Emotion: try current.sentiment or current.culturalAnalysis.sentiment
+  const sentiment = (current as any).sentiment || (current.culturalAnalysis && current.culturalAnalysis.sentiment
+    ? { label: current.culturalAnalysis.sentiment, score: 1, emotion: (current.culturalAnalysis.emotions && current.culturalAnalysis.emotions[0]) || undefined }
+    : null);
+  // Tone: try current.tone or current.culturalAnalysis.toneIndicators
+  const tone = (current as any).tone || (current.culturalAnalysis && current.culturalAnalysis.toneIndicators && current.culturalAnalysis.toneIndicators.length > 0
+    ? { requested: (current as any).requestedTone || undefined, detected: current.culturalAnalysis.toneIndicators[0].type, matchScore: 100 }
+    : null);
 
   const copyToClipboard = (text: string, field: string) => {
     navigator.clipboard.writeText(text);
@@ -51,6 +68,112 @@ export function AdaptationView({ adaptations, imageAnalysis, onBack }: Props) {
 
   return (
     <div className="space-y-6 fade-in-up">
+      {/* === Advanced Adaptation Insights === */}
+      <div className="flex items-center gap-2 mb-2">
+        <Wand2 className="w-4 h-4 text-pink-400" />
+        <h2 className="text-lg font-semibold text-white">Advanced Adaptation Insights</h2>
+      </div>
+
+      {/* Divider for end of advanced features */}
+      <div className="border-t border-gray-700 my-6" />
+
+      {/* Fallback if no advanced features present */}
+      {!current.backTranslation && !idiomSlang && !sentiment && !tone && (
+        <div className="text-gray-400 text-sm italic text-center">No advanced adaptation insights available for this locale.</div>
+      )}
+
+      {/* Back-Translation (for verification) - moved to bottom, no score */}
+      {current.backTranslation && (
+        <div className="glass-card rounded-xl p-5 mt-6 border-l-4 border-indigo-500/60">
+          <h4 className="text-sm font-bold text-indigo-300 mb-2 flex items-center gap-2">
+            <Languages className="w-4 h-4 text-indigo-400" /> Back-Translation <span className="text-xs text-gray-400">(for verification)</span>
+          </h4>
+          <div className="flex flex-wrap gap-4 items-center text-xs">
+            <div>
+              <span className="text-gray-400">Headline:</span> <span className="text-gray-200 font-mono">{current.backTranslation.headline || "-"}</span>
+            </div>
+            <div>
+              <span className="text-gray-400">CTA:</span> <span className="text-gray-200 font-mono">{current.backTranslation.cta || "-"}</span>
+            </div>
+            <div>
+              <span className="text-gray-400">Body:</span> <span className="text-gray-200 font-mono">{current.backTranslation.body || "-"}</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Idiom & Slang Localizer */}
+      {idiomSlang && (
+        <div className="glass-card rounded-xl p-5 mb-2 border-l-4 border-pink-500/60">
+          <h4 className="text-sm font-bold text-pink-300 mb-2 flex items-center gap-2">
+            <Globe className="w-4 h-4 text-pink-400" /> Idiom & Slang Localization
+          </h4>
+          <div className="text-xs text-gray-200">
+            {idiomSlang.localized && idiomSlang.localized.length > 0 ? (
+              <ul className="list-disc ml-5">
+                {idiomSlang.localized.map((item: any, idx: number) => (
+                  <li key={idx}>
+                    <span className="font-semibold text-pink-200">{item.original}</span> → <span className="text-pink-100">{item.localized}</span>
+                    {item.explanation && <span className="text-gray-400 ml-2">({item.explanation})</span>}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <span className="text-gray-400">No idioms or slang detected in this adaptation.</span>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Sentiment & Emotion Analysis */}
+      {sentiment && (
+        <div className="glass-card rounded-xl p-5 mb-2 border-l-4 border-amber-500/60">
+          <h4 className="text-sm font-bold text-amber-300 mb-2 flex items-center gap-2">
+            <Smile className="w-4 h-4 text-amber-400" /> Sentiment & Emotion
+          </h4>
+          <div className="flex flex-wrap gap-4 items-center text-xs">
+            <div>
+              <span className="text-gray-400">Sentiment:</span> <span className="font-semibold text-amber-200">{sentiment.label}</span>
+            </div>
+            <div>
+              <span className="text-gray-400">Score:</span> <span className="text-amber-100">{(sentiment.score * 100).toFixed(1)}%</span>
+            </div>
+            {sentiment.emotion && (
+              <div>
+                <span className="text-gray-400">Emotion:</span> <span className="text-amber-100">{sentiment.emotion}</span>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Tone Matching */}
+      {tone && (
+        <div className="glass-card rounded-xl p-5 mb-2 border-l-4 border-cyan-500/60">
+          <h4 className="text-sm font-bold text-cyan-300 mb-2 flex items-center gap-2">
+            <Brush className="w-4 h-4 text-cyan-400" /> Tone Matching
+          </h4>
+          <div className="flex flex-wrap gap-4 items-center text-xs">
+            <div>
+              <span className="text-gray-400">Requested Tone:</span> <span className="text-cyan-200 font-semibold">{tone.requested || "-"}</span>
+            </div>
+            <div>
+              <span className="text-gray-400">Detected Tone:</span> <span className="text-cyan-100">{tone.detected || "-"}</span>
+            </div>
+            <div>
+              <span className="text-gray-400">Match Score:</span> <span className={`font-bold ${tone.matchScore >= 80 ? "text-emerald-400" : tone.matchScore >= 60 ? "text-amber-400" : "text-red-400"}`}>{tone.matchScore ?? "-"}/100</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Divider for end of advanced features */}
+      <div className="border-t border-gray-700 my-6" />
+
+      {/* Fallback if no advanced features present */}
+      {!current.backTranslation && !idiomSlang && !sentiment && !tone && (
+        <div className="text-gray-400 text-sm italic text-center">No advanced adaptation insights available for this locale.</div>
+      )}
       {/* Top Bar */}
       <div className="flex items-center justify-between">
         <button
@@ -232,6 +355,22 @@ export function AdaptationView({ adaptations, imageAnalysis, onBack }: Props) {
 
 /* ===== Comparison Row Component ===== */
 
+
+function highlightIdiomSlang(changes: any[], text: string) {
+  if (!changes || changes.length === 0) return text;
+  let highlighted = text;
+  changes.forEach((change) => {
+    if ((change.type === "idiom" || change.type === "slang") && change.adapted) {
+      const regex = new RegExp(change.adapted.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), "gi");
+      highlighted = highlighted.replace(
+        regex,
+        `<span class='bg-amber-500/30 text-amber-900 px-1 rounded' title='Localized ${change.type}: ${change.original} → ${change.adapted}. Reason: ${change.reason}'>$&</span>`
+      );
+    }
+  });
+  return highlighted;
+}
+
 function ComparisonRow({
   label,
   original,
@@ -241,6 +380,7 @@ function ComparisonRow({
   onCopy,
   copyFieldName,
   multiline = false,
+  changes = [],
 }: {
   label: string;
   original: string;
@@ -250,6 +390,7 @@ function ComparisonRow({
   onCopy: (text: string) => void;
   copyFieldName: string;
   multiline?: boolean;
+  changes?: any[];
 }) {
   return (
     <div className="glass-card rounded-xl p-5">
@@ -313,9 +454,10 @@ function ComparisonRow({
             className={`text-sm text-emerald-200 font-medium ${
               multiline ? "whitespace-pre-wrap" : ""
             }`}
-          >
-            {adapted}
-          </p>
+            dangerouslySetInnerHTML={{
+              __html: highlightIdiomSlang(changes, adapted),
+            }}
+          />
         </div>
       </div>
     </div>

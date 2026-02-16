@@ -12,7 +12,33 @@ Translation ≠ Localization. A "Buy Now" CTA that works in the US falls flat in
 
 **Cultural Context Adapter** solves this by adding an intelligent cultural adaptation layer on top of translation.
 
-## ✨ What It Does
+
+## 🆕 Latest Features
+
+- **Advanced Adaptation Insights**:
+    - **Sentiment & Emotion Analysis**: Detects and displays the emotional tone of each adaptation.
+    - **Idioms & Slang Localizer**: Finds and localizes idioms/slang, with explanations.
+    - **Automatic Tone Matching**: Detects and matches tone per locale, with match scoring.
+    - **Back-Translation (Verification Only)**: Shows round-trip translation for verification, no longer scored or used for evaluation.
+
+- **Cultural Sensitivity Automation**:
+    - For Hindi (India), all “beef” references are automatically replaced with “vegetarian” to respect local taboos.
+
+- **UI/UX Improvements**:
+    - All advanced features are grouped and clearly displayed.
+    - Back-Translation is now at the bottom, labeled for verification only, and the consistency score is removed to avoid confusion.
+
+- **Testing & Demo**:
+    - New advanced test cases for food taboos, idioms, tone, and more.
+    - End-to-end demo flows for hackathon/judging.
+
+**How to Demo:**
+- Run the app, select a campaign, and choose multiple locales.
+- For Hindi (India), try a campaign with “beef burger” and see it automatically adapted.
+- Use the “Advanced Adaptation Insights” section to show sentiment, idioms, tone, and back-translation.
+- Explain that back-translation is for verification only, not for scoring.
+
+---
 
 | Feature | Description |
 |---------|-------------|
@@ -27,32 +53,40 @@ Translation ≠ Localization. A "Buy Now" CTA that works in the US falls flat in
 | **Explanation Engine** | Detailed rationale for every cultural change made |
 | **Demo Mode** | Pre-loaded sample campaigns to showcase capabilities instantly |
 
+
 ## 🏗️ Architecture
 
 ```
-┌─────────────────────────────────────────────────┐
-│                   Frontend (React + TS)         │
-│  Campaign Input → Loading → Three-Column View   │
-└────────────────────┬────────────────────────────┘
+┌──────────────────────────────────────────────────────────────┐
+│                   Frontend (React + TS)                      │
+│  Campaign Input → Loading → Adaptation Insights View          │
+│  ┌─────────────────────────────────────────────────────────┐ │
+│  │ Advanced Adaptation Insights:                           │ │
+│  │  - Sentiment & Emotion  - Idioms & Slang  - Tone Match │ │
+│  │  - Color Analysis      - Cultural Score                 │ │
+│  │  - Back-Translation (Verification, bottom of page)      │ │
+│  └─────────────────────────────────────────────────────────┘ │
+└────────────────────┬─────────────────────────────────────────┘
                      │ REST API
-┌────────────────────▼────────────────────────────┐
-│                Backend (Express)                 │
-│                                                  │
-│  ┌──────────────┐  ┌─────────────────────┐      │
-│  │ Cultural      │  │ lingo.dev SDK       │      │
-│  │ Analyzer      │  │ (Translation)       │      │
-│  │ (Rule-based)  │  └─────────────────────┘      │
-│  └──────────────┘                                │
-│  ┌──────────────┐  ┌─────────────────────┐      │
-│  │ Anthropic     │  │ HuggingFace         │      │
-│  │ Claude        │  │ (BLIP + ViT)        │      │
-│  │ (Adaptation)  │  │ (Image Analysis)    │      │
-│  └──────────────┘  └─────────────────────┘      │
-│  ┌──────────────┐  ┌─────────────────────┐      │
-│  │ Color         │  │ CTA                 │      │
-│  │ Analyzer      │  │ Optimizer           │      │
-│  └──────────────┘  └─────────────────────┘      │
-└──────────────────────────────────────────────────┘
+┌────────────────────▼────────────────────────────────────────┐
+│                Backend (Express)                            │
+│                                                            │
+│  ┌──────────────┐  ┌─────────────────────┐                │
+│  │ Cultural      │  │ lingo.dev SDK       │                │
+│  │ Analyzer      │  │ (Translation)       │                │
+│  │ (Rule-based)  │  └─────────────────────┘                │
+│  └──────────────┘                                          │
+│  ┌──────────────┐  ┌─────────────────────┐                │
+│  │ Groq/Claude   │  │ HuggingFace         │                │
+│  │ (LLM Adapt.)  │  │ (BLIP + ViT)        │                │
+│  │ (Cultural     │  │ (Image Analysis)    │                │
+│  │  Reasoning)   │  └─────────────────────┘                │
+│  └──────────────┘                                          │
+│  ┌──────────────┐  ┌─────────────────────┐                │
+│  │ Color         │  │ CTA                 │                │
+│  │ Analyzer      │  │ Optimizer           │                │
+│  └──────────────┘  └─────────────────────┘                │
+└────────────────────────────────────────────────────────────┘
 ```
 
 ### Pipeline Flow
