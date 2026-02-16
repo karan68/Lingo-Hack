@@ -1,0 +1,19 @@
+{
+  "name": "cultural-context-adapter-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@huggingface/inference": "^2.8.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "groq-sdk": "^0.37.0",
+    "lingo.dev": "^0.131.2",
+    "multer": "^1.4.5-lts.1"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "locales": {
+    "en-US": {
+      "name": "English (US)",
+      "colorMeanings": {
+        "#FF0000": { "meaning": "Passion, excitement, sometimes danger", "marketingUse": "Sales, clearance, urgency", "appropriate": true },
+        "#00FF00": { "meaning": "Growth, health, nature", "marketingUse": "Eco-friendly, wellness", "appropriate": true },
+        "#0000FF": { "meaning": "Trust, calm, professionalism", "marketingUse": "Finance, tech", "appropriate": true }
+      }
+    },
+    "zh-CN": {
+      "name": "Chinese (Simplified)",
+      "colorMeanings": {
+        "#FF0000": { "meaning": "Luck, celebration, happiness", "marketingUse": "Festivals, weddings", "appropriate": true },
+        "#00FF00": { "meaning": "Health, prosperity", "marketingUse": "Wellness, food", "appropriate": true },
+        "#0000FF": { "meaning": "Immortality, healing", "marketingUse": "Medicine, tech", "appropriate": true }
+      }
+    },
+    "ar-SA": {
+      "name": "Arabic (Saudi Arabia)",
+      "colorMeanings": {
+        "#FF0000": { "meaning": "Danger, caution", "marketingUse": "Warning, alert", "appropriate": false },
+        "#00FF00": { "meaning": "Islam, paradise, peace", "marketingUse": "Religion, nature", "appropriate": true },
+        "#0000FF": { "meaning": "Protection, safety", "marketingUse": "Security, tech", "appropriate": true }
+      }
+    }
+  },
+  "holidayMappings": {}
+}
