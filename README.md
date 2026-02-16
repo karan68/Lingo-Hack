@@ -238,15 +238,7 @@ The Cultural Confidence Score (0-100) is calculated from:
 
 **Penalties:** Each detected cultural conflict reduces the score by up to 10 points.
 
-## 🔑 Why This Wins
 
-1. **Real Problem** — Every global brand struggles with localization beyond translation
-2. **lingo.dev + AI Layer** — Uses lingo.dev for what it's best at (translation) and Claude for cultural reasoning
-3. **Open-Source Image AI** — HuggingFace models (BLIP + ViT) for visual content analysis, no proprietary vision APIs
-4. **Explainable AI** — Every change comes with a human-readable explanation
-5. **Quantified Culture** — Cultural confidence score makes an abstract concept measurable
-6. **Demo-Ready** — Pre-loaded campaigns for instant showcase
-7. **Production Architecture** — Clean separation of concerns, typed frontend, modular backend
 
 ## 📝 License
 
