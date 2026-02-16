@@ -37,7 +37,7 @@ Your job is to CULTURALLY ADAPT the translation — not just translate, but tran
 REQUIREMENTS:
 1. Maintain the core marketing objective
 2. Adjust tone, metaphors, and messaging to align with ${locale} cultural psychology
-3. Replace culturally-specific references (holidays, idioms) with local equivalents
+3. Replace culturally-specific references (holidays, idioms, slang) with local equivalents. Detect and localize any idioms or slang, and explain the change in the output.
 4. Ensure the adapted version feels native, not translated
 5. Preserve brand voice while adapting to local communication norms
 6. Apply the persuasion tactics that work in this culture
@@ -50,7 +50,8 @@ OUTPUT FORMAT (JSON only, no markdown):
     {
       "original": "original phrase",
       "adapted": "adapted phrase",
-      "reason": "cultural reason for change"
+      "reason": "cultural reason for change",
+      "type": "idiom|slang|other" // Mark if this was an idiom or slang
     }
   ],
   "culturalScore": 85,

@@ -45,17 +45,35 @@ async function getLingoClient() {
  * 4. Claude explanation generation (AI - transparency)
  */
 export async function adaptCampaign(campaign, targetLocale) {
+
   const sourceLocale = campaign.sourceLocale || "en-US";
   const culturalRules = getCulturalRules(targetLocale);
   const context = {
     industry: campaign.industry || "General",
-    brandTone: campaign.brandTone || "Professional",
+    brandTone: (campaign.localeTones && campaign.localeTones[targetLocale]) || campaign.brandTone || "Professional",
     targetAudience: campaign.targetAudience || "General consumers",
     goal: campaign.goal || "Engagement",
     sourceLocale,
     product: campaign.product || "",
     benefits: campaign.benefits || [],
   };
+
+  // --- HI-IN: Replace beef references with vegetarian alternatives ---
+  function replaceBeef(text) {
+    if (!text) return text;
+    // Replace 'beef burger' or 'beef' with 'vegetarian burger'
+    return text
+      .replace(/beef\s*burger/gi, "vegetarian burger")
+      .replace(/beef/gi, "vegetarian");
+  }
+  let patchedCampaign = { ...campaign };
+  if (targetLocale === "hi-IN") {
+    patchedCampaign.headline = replaceBeef(campaign.headline);
+    patchedCampaign.cta = replaceBeef(campaign.cta);
+    patchedCampaign.body = replaceBeef(campaign.body);
+  }
+  // Use patchedCampaign for all further processing
+  campaign = patchedCampaign;
 
   // STEP 1: Rule-based cultural analysis (instant, no API cost)
   const fullText = [campaign.headline, campaign.cta, campaign.body]
@@ -219,6 +237,26 @@ export async function adaptCampaign(campaign, targetLocale) {
     culturalAnalysis
   );
 
+  // STEP 7: Back-translation consistency check
+  let backTranslation = { headline: null, cta: null, body: null };
+  let consistencyScore = 100;
+  if (lingo) {
+    try {
+      const btHeadline = await lingo.localizeText(headlineResult.adapted, { sourceLocale: targetLocale, targetLocale: sourceLocale });
+      const btCTA = await lingo.localizeText(ctaResult.adapted, { sourceLocale: targetLocale, targetLocale: sourceLocale });
+      const btBody = await lingo.localizeText(bodyResult.adapted, { sourceLocale: targetLocale, targetLocale: sourceLocale });
+      backTranslation = { headline: btHeadline, cta: btCTA, body: btBody };
+      // Simple consistency: penalize if back-translation is very different from original
+      let diffCount = 0;
+      if (campaign.headline && btHeadline && btHeadline.trim().toLowerCase() !== campaign.headline.trim().toLowerCase()) diffCount++;
+      if (campaign.cta && btCTA && btCTA.trim().toLowerCase() !== campaign.cta.trim().toLowerCase()) diffCount++;
+      if (campaign.body && btBody && btBody.trim().toLowerCase() !== campaign.body.trim().toLowerCase()) diffCount++;
+      consistencyScore = 100 - diffCount * 33;
+    } catch (err) {
+      // Ignore back-translation errors
+    }
+  }
+
   return {
     locale: targetLocale,
     localeName: culturalRules.name,
@@ -246,6 +284,8 @@ export async function adaptCampaign(campaign, targetLocale) {
     colorAnalysis,
     explanation,
     culturalScore,
+    backTranslation,
+    consistencyScore,
     timestamp: new Date().toISOString(),
   };
 }

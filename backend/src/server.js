@@ -60,7 +60,7 @@ app.listen(PORT, () => {
   console.log(`   Health: http://localhost:${PORT}/api/health`);
   console.log(`\n   Services:`);
   console.log(`   ├─ lingo.dev SDK: ${process.env.LINGODOTDEV_API_KEY ? "✅ configured" : "❌ missing LINGODOTDEV_API_KEY"}`);
-  console.log(`   ├─ Anthropic Claude: ${process.env.ANTHROPIC_API_KEY ? "✅ configured" : "⚠️  missing ANTHROPIC_API_KEY (cultural reasoning disabled)"}`);
+  console.log(`   ├─ Anthropic Claude: ${process.env.ANTHROPIC_API_KEY ? "✅ configured" : "⚠️  missing ANTHROPIC_API_KEY groq is being used instead"}`);
   console.log(`   └─ Hugging Face: ${process.env.HF_API_KEY ? "✅ configured" : "⚠️  missing HF_API_KEY (image analysis disabled)"}`);
   console.log();
 });
