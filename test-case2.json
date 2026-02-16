@@ -1,0 +1,320 @@
+{
+    "success": true,
+    "adaptations": [
+        {
+            "locale": "ar-SA",
+            "localeName": "Arabic (Saudi Arabia)",
+            "original": {
+                "headline": "Sizzling Summer BBQ Collection - Pork Ribs, Craft Beer & More!",
+                "cta": "Order Now & Get Free Wings!",
+                "body": "Fire up the grill this weekend! Our premium pork ribs are marinated in craft beer and smoked to perfection. Pair with our award-winning IPA and enjoy the ultimate backyard party. Dog-friendly events every Saturday!"
+            },
+            "translated": {
+                "headline": "مجموعة الشواء الصيفي الشهية - أضلاع اللحم، البيرة الحرفية والمزيد!",
+                "cta": "اطلب الآن واحصل على أجنحة مجانية!",
+                "body": "أشعل الشواية في نهاية هذا الأسبوع! لحومنا الفاخرة متبلة ومدخنة بإتقان. استمتع بأجواء الحفلات المثالية في الحديقة. فعاليات ترحب بالحيوانات الأليفة كل يوم سبت!"
+            },
+            "adapted": {
+                "headline": "مجموعة الشواء الصيفي الشهية - أضلاع الدجاج، المشروبات الغازية والمزيد!",
+                "cta": "اكتشف عروضنا المميزة واطلب الآن لتحصل على أجنحة مجانية!",
+                "body": "أحضر عائلتك إلى الحديقة هذا الأسبوع! نقدم لكم أطباقنا اللذيذة المُحضرة بعناية، مصاحبةً لمشروبات رائعة. استمتعوا بأجواء الحفلات العائلية المثالية كل يوم سبت!"
+            },
+            "changes": {
+                "headline": [
+                    {
+                        "original": "أضلاع اللحم",
+                        "adapted": "أضلاع الدجاج",
+                        "reason": "Replacing pork with chicken to ensure halal compliance"
+                    },
+                    {
+                        "original": "البيرة الحرفية",
+                        "adapted": "المشروبات الغازية",
+                        "reason": "Removing beer reference to avoid cultural taboo"
+                    }
+                ],
+                "cta": [],
+                "body": [
+                    {
+                        "what": "Removed reference to pork ribs",
+                        "why": "Pork is not halal and is not commonly consumed in Saudi Arabia, so it was replaced to respect Islamic values"
+                    },
+                    {
+                        "what": "Removed reference to craft beer and IPA",
+                        "why": "Alcohol is not permissible in Islam, so it was removed to respect Islamic values"
+                    },
+                    {
+                        "what": "Added family-centric language",
+                        "why": "Family is a key value in Saudi Arabian culture, so the language was adapted to be more family-centric"
+                    },
+                    {
+                        "what": "Removed reference to dog-friendly events",
+                        "why": "While not inherently problematic, the focus was shifted to family-centric language to better resonate with the target audience"
+                    }
+                ]
+            },
+            "culturalAnalysis": {
+                "idioms": [],
+                "holidays": [],
+                "colors": [],
+                "numbers": [],
+                "toneIndicators": [
+                    {
+                        "type": "urgency",
+                        "indicator": "4 exclamation mark(s)",
+                        "note": "May feel too aggressive in indirect cultures (Japan, China)"
+                    },
+                    {
+                        "type": "shouting",
+                        "indicator": "ALL CAPS words: BBQ, IPA",
+                        "note": "Perceived as shouting; inappropriate in polite/indirect cultures"
+                    }
+                ],
+                "urgencyLevel": 35,
+                "culturalConflicts": [
+                    {
+                        "locale": "ar-SA",
+                        "type": "food_taboo",
+                        "element": "pork",
+                        "severity": "high",
+                        "message": "Reference to \"pork\" is taboo in Arabic (Saudi Arabia)"
+                    }
+                ]
+            },
+            "colorAnalysis": {
+                "colors": [
+                    {
+                        "color": "#FF4500",
+                        "colorName": "#FF4500",
+                        "status": "unknown",
+                        "message": "No cultural data for #FF4500 in ar-SA",
+                        "appropriate": true,
+                        "suggestions": []
+                    },
+                    {
+                        "color": "#8B4513",
+                        "colorName": "#8B4513",
+                        "status": "unknown",
+                        "message": "No cultural data for #8B4513 in ar-SA",
+                        "appropriate": true,
+                        "suggestions": []
+                    },
+                    {
+                        "color": "#FFD700",
+                        "colorName": "Gold",
+                        "sourceContext": {
+                            "meaning": "Success, premium, achievement",
+                            "marketingUse": "Luxury, awards, premium tiers"
+                        },
+                        "targetContext": {
+                            "meaning": "Luxury, wealth, prestige",
+                            "marketingUse": "Premium, luxury brands"
+                        },
+                        "appropriate": true,
+                        "status": "safe",
+                        "message": "Gold means \"Luxury, wealth, prestige\" in ar-SA — appropriate for marketing",
+                        "suggestions": []
+                    }
+                ],
+                "overallScore": 80,
+                "overallStatus": "excellent",
+                "summary": "All colors in your campaign are culturally appropriate for ar-SA."
+            },
+            "explanation": {
+                "explanation": "The culturally adapted version of the campaign replaces pork ribs with chicken, removes craft beer, and changes the focus from a backyard party to a family gathering. This is because in Saudi Arabian culture, pork and alcohol are considered taboo, and family honor is a core value. By adapting the campaign to respect these cultural norms, we can avoid offending potential customers and create a more welcoming atmosphere. The adapted version also uses more formal and respectful language, which is consistent with the communication style in Saudi Arabia. Additionally, the emphasis on family and hospitality in the adapted version aligns with the cultural values of faith, family honor, and hospitality.",
+                "keyChanges": [
+                    {
+                        "change": "Replacement of 'pork ribs' with 'أضلاع الدجاج' (chicken)",
+                        "culturalReason": "Pork is considered haram (forbidden) in Islamic culture, and its mention could be offensive to Saudi Arabian audiences."
+                    },
+                    {
+                        "change": "Removal of 'craft beer' and replacement with 'مشروبات غازية' (soft drinks)",
+                        "culturalReason": "Alcohol is prohibited in Saudi Arabia, and its promotion could be seen as disrespectful to the country's laws and cultural values."
+                    },
+                    {
+                        "change": "Shift from 'backyard party' to 'أجواء الحفلات العائلية' (family gathering)",
+                        "culturalReason": "The concept of a family gathering is more consistent with Saudi Arabian cultural values, which emphasize the importance of family and hospitality."
+                    }
+                ],
+                "marketingImpact": "The culturally adapted version is expected to perform better in Saudi Arabia because it respects local cultural norms and values, creating a more welcoming and inclusive atmosphere for potential customers. By avoiding taboo topics and emphasizing family and hospitality, the campaign can build trust and credibility with Saudi Arabian audiences, ultimately driving more sales and engagement."
+            },
+            "culturalScore": {
+                "overall": 71,
+                "breakdown": [
+                    {
+                        "name": "Headline",
+                        "score": 92
+                    },
+                    {
+                        "name": "CTA",
+                        "score": 75
+                    },
+                    {
+                        "name": "Body Copy",
+                        "score": 75
+                    },
+                    {
+                        "name": "Color Scheme",
+                        "score": 80
+                    }
+                ],
+                "conflictPenalty": 10
+            },
+            "timestamp": "2026-02-16T19:42:22.851Z"
+        },
+        {
+            "locale": "hi-IN",
+            "localeName": "Hindi (India)",
+            "original": {
+                "headline": "Sizzling Summer BBQ Collection - Pork Ribs, Craft Beer & More!",
+                "cta": "Order Now & Get Free Wings!",
+                "body": "Fire up the grill this weekend! Our premium pork ribs are marinated in craft beer and smoked to perfection. Pair with our award-winning IPA and enjoy the ultimate backyard party. Dog-friendly events every Saturday!"
+            },
+            "translated": {
+                "headline": "सिज़लिंग समर BBQ कलेक्शन - पोर्क रिब्स, क्राफ्ट बीयर और भी बहुत कुछ!",
+                "cta": "अभी ऑर्डर करें और मुफ़्त विंग्स पाएं!",
+                "body": "इस सप्ताहांत ग्रिल तैयार करें! हमारी प्रीमियम पोर्क रिब्स क्राफ्ट बीयर में मैरिनेट की गई हैं और परफेक्शन तक स्मोक्ड हैं। हमारी अवार्ड-विनिंग IPA के साथ पेयर करें और अल्टीमेट बैकयार्ड पार्टी का आनंद लें। हर शनिवार को डॉग-फ्रेंडली इवेंट्स!"
+            },
+            "adapted": {
+                "headline": "गर्मियों की शानदार बारबेक्यू संग्रह - स्वादिष्ट चिकन टिक्का, ठंडे पेय और बहुत कुछ!",
+                "cta": "अभी शुरू करें और अपने परिवार के साथ मुफ़्त विंग्स का आनंद लें!",
+                "body": "इस सप्ताहांत परिवार के साथ ग्रिल का मज़ा लें! हमारी प्रीमियम पोर्क रिब्स क्राफ्ट बीयर में मैरिनेट की गई हैं और परफेक्शन तक स्मोक्ड हैं। हमारी अवार्ड-विनिंग IPA के साथ पेयर करें और अपने परिवार के साथ अल्टीमेट बैकयार्ड पार्टी का आनंद लें। हर शनिवार को डॉग-फ्रेंडली इवेंट्स, जहां आपका पूरा परिवार साथ आ सकता है!"
+            },
+            "changes": {
+                "headline": [
+                    {
+                        "original": "सिज़लिंग समर BBQ कलेक्शन",
+                        "adapted": "गर्मियों की शानदार बारबेक्यू संग्रह",
+                        "reason": "Replaced 'सिज़लिंग समर' with 'गर्मियों की शानदार' to better resonate with hi-IN cultural preference for descriptive and festive language"
+                    },
+                    {
+                        "original": "पोर्क रिब्स",
+                        "adapted": "स्वादिष्ट चिकन टिक्का",
+                        "reason": "Replaced 'पोर्क रिब्स' with 'स्वादिष्ट चिकन टिक्का' to avoid cultural taboo of beef/pork references and to offer a more locally preferred protein"
+                    },
+                    {
+                        "original": "क्राफ्ट बीयर",
+                        "adapted": "ठंडे पेय",
+                        "reason": "Replaced 'क्राफ्ट बीयर' with 'ठंडे पेय' to make the offer more inclusive and appealing to a broader audience, considering the cultural preference for family-friendly messaging"
+                    }
+                ],
+                "cta": [],
+                "body": [
+                    {
+                        "what": "Added 'परिवार के साथ' to the beginning of the sentence",
+                        "why": "To lead with an emotional connection and reference family, which is a key value in Indian culture"
+                    },
+                    {
+                        "what": "Changed 'अल्टीमेट बैकयार्ड पार्टी' to 'अपने परिवार के साथ अल्टीमेट बैकयार्ड पार्टी'",
+                        "why": "To emphasize the importance of family and make the experience more relatable and desirable"
+                    },
+                    {
+                        "what": "Added 'जहां आपका पूरा परिवार साथ आ सकता है' to the end of the sentence",
+                        "why": "To highlight the inclusivity and family-friendliness of the event, which is a key aspect of Indian culture"
+                    }
+                ]
+            },
+            "culturalAnalysis": {
+                "idioms": [],
+                "holidays": [],
+                "colors": [],
+                "numbers": [],
+                "toneIndicators": [
+                    {
+                        "type": "urgency",
+                        "indicator": "4 exclamation mark(s)",
+                        "note": "May feel too aggressive in indirect cultures (Japan, China)"
+                    },
+                    {
+                        "type": "shouting",
+                        "indicator": "ALL CAPS words: BBQ, IPA",
+                        "note": "Perceived as shouting; inappropriate in polite/indirect cultures"
+                    }
+                ],
+                "urgencyLevel": 35,
+                "culturalConflicts": []
+            },
+            "colorAnalysis": {
+                "colors": [
+                    {
+                        "color": "#FF4500",
+                        "colorName": "#FF4500",
+                        "status": "unknown",
+                        "message": "No cultural data for #FF4500 in hi-IN",
+                        "appropriate": true,
+                        "suggestions": []
+                    },
+                    {
+                        "color": "#8B4513",
+                        "colorName": "#8B4513",
+                        "status": "unknown",
+                        "message": "No cultural data for #8B4513 in hi-IN",
+                        "appropriate": true,
+                        "suggestions": []
+                    },
+                    {
+                        "color": "#FFD700",
+                        "colorName": "Gold",
+                        "sourceContext": {
+                            "meaning": "Success, premium, achievement",
+                            "marketingUse": "Luxury, awards, premium tiers"
+                        },
+                        "targetContext": {
+                            "meaning": "Prosperity, divinity, auspiciousness",
+                            "marketingUse": "Premium, festive, religious"
+                        },
+                        "appropriate": true,
+                        "status": "safe",
+                        "message": "Gold means \"Prosperity, divinity, auspiciousness\" in hi-IN — appropriate for marketing",
+                        "suggestions": []
+                    }
+                ],
+                "overallScore": 80,
+                "overallStatus": "excellent",
+                "summary": "All colors in your campaign are culturally appropriate for hi-IN."
+            },
+            "explanation": {
+                "explanation": "The culturally adapted version of the campaign replaces pork ribs with chicken tikka to avoid the taboo of beef or pork references in Indian culture. Additionally, the language is modified to emphasize family and togetherness, using phrases like 'परिवार के साथ' (with family) to resonate with the values-driven and family-oriented nature of the Indian audience. The call-to-action is also changed to 'अभी शुरू करें और अपने परिवार के साथ मुफ़्त विंग्स का आनंद लें' (start now and enjoy free wings with your family) to further reinforce this emphasis. This adaptation will perform better in the hi-IN market because it respects local values and preferences, increasing the likelihood of engagement and conversion. However, the marketer should remain aware of regional variations within India and consider additional adaptations for specific areas or communities.",
+                "keyChanges": [
+                    {
+                        "change": "Replacement of 'pork ribs' with 'chicken tikka'",
+                        "culturalReason": "Avoidance of taboo meat references"
+                    },
+                    {
+                        "change": "Addition of 'परिवार के साथ' (with family) phrases",
+                        "culturalReason": "Emphasis on family values and togetherness"
+                    },
+                    {
+                        "change": "Modification of the call-to-action to include family",
+                        "culturalReason": "Reinforcement of family-oriented values"
+                    }
+                ],
+                "marketingImpact": "The culturally adapted campaign is expected to have a higher engagement and conversion rate in the hi-IN market due to its respect for local values and preferences, particularly the emphasis on family and the avoidance of taboo references."
+            },
+            "culturalScore": {
+                "overall": 81,
+                "breakdown": [
+                    {
+                        "name": "Headline",
+                        "score": 92
+                    },
+                    {
+                        "name": "CTA",
+                        "score": 75
+                    },
+                    {
+                        "name": "Body Copy",
+                        "score": 75
+                    },
+                    {
+                        "name": "Color Scheme",
+                        "score": 80
+                    }
+                ],
+                "conflictPenalty": 0
+            },
+            "timestamp": "2026-02-16T19:42:30.971Z"
+        }
+    ],
+    "totalLocales": 2,
+    "successfulAdaptations": 2
+}

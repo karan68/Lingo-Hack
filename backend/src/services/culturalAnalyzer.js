@@ -4,7 +4,41 @@ import { getCulturalRules, getHolidayMapping } from "../config/culturalRules.js"
  * Analyze campaign text for cultural elements using rule-based detection.
  * No AI required — fast, deterministic, and cost-free.
  */
+
+// Simple sentiment and emotion analysis (English, extendable)
+function analyzeSentimentAndEmotion(text) {
+  // Very basic: look for positive/negative words and some emotion keywords
+  const positiveWords = ["good", "great", "excellent", "happy", "love", "amazing", "win", "success", "joy", "excited", "best", "positive", "enjoy"];
+  const negativeWords = ["bad", "poor", "sad", "hate", "angry", "fail", "loss", "worst", "negative", "problem", "fear", "worry", "concern"];
+  const emotionMap = {
+    joy: ["happy", "joy", "delight", "excited", "love", "enjoy"],
+    anger: ["angry", "mad", "furious", "rage", "hate"],
+    sadness: ["sad", "cry", "tears", "unhappy", "loss"],
+    fear: ["fear", "scared", "afraid", "worry", "concern"],
+    surprise: ["surprise", "amazed", "shocked", "astonished"],
+    trust: ["trust", "secure", "safe", "confident"],
+    anticipation: ["anticipate", "expect", "hope", "await"],
+    disgust: ["disgust", "gross", "nasty", "repulsed"]
+  };
+  const lower = text.toLowerCase();
+  let score = 0;
+  let detectedEmotions = [];
+  for (const w of positiveWords) if (lower.includes(w)) score++;
+  for (const w of negativeWords) if (lower.includes(w)) score--;
+  for (const [emotion, words] of Object.entries(emotionMap)) {
+    if (words.some((w) => lower.includes(w))) detectedEmotions.push(emotion);
+  }
+  let sentiment = "neutral";
+  if (score > 0) sentiment = "positive";
+  else if (score < 0) sentiment = "negative";
+  return {
+    sentiment,
+    emotions: detectedEmotions.length > 0 ? detectedEmotions : ["neutral"]
+  };
+}
+
 export function analyzeTextForCulturalElements(text, targetLocales) {
+  const sentimentEmotion = analyzeSentimentAndEmotion(text);
   const results = {
     idioms: detectIdioms(text),
     holidays: detectHolidays(text),
@@ -13,6 +47,8 @@ export function analyzeTextForCulturalElements(text, targetLocales) {
     toneIndicators: detectToneIndicators(text),
     urgencyLevel: detectUrgencyLevel(text),
     culturalConflicts: [],
+    sentiment: sentimentEmotion.sentiment,
+    emotions: sentimentEmotion.emotions,
   };
 
   // Check each target locale for conflicts
