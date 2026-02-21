@@ -1,5 +1,7 @@
 # 🌍 Cultural Context Adapter
 
+Link of the technical doc - https://medium.com/@mekaranyadav8/buy-now-doesnt-work-in-japan-so-i-built-an-ai-that-knows-why-20ef0e4a3bd1
+
 **AI-powered marketing localization that goes beyond translation** — adapts campaigns to resonate culturally in every target market.
 
 > Built for the lingo.dev hackathon · Powered by lingo.dev SDK + Anthropic Claude + HuggingFace open-source models
