@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Header } from "./components/Header";
 import { CampaignInputForm } from "./components/CampaignInput";
+import { ImageTextExtractor } from "./components/ImageTextExtractor";
 import { LoadingState } from "./components/LoadingState";
 import { AdaptationView } from "./components/AdaptationView";
 import {
@@ -93,10 +94,15 @@ export default function App() {
         </div>
       )}
 
+
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-6 py-8">
         {step === "input" && (
-          <CampaignInputForm onSubmit={handleSubmit} loading={false} />
+          <>
+            <CampaignInputForm onSubmit={handleSubmit} loading={false} />
+            {/* Experimental: Image Text Extractor for banners */}
+            <ImageTextExtractor />
+          </>
         )}
 
         {step === "loading" && <LoadingState />}

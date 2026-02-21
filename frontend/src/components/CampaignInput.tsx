@@ -39,10 +39,7 @@ const GOALS = [
 ];
 
 interface Props {
-  onSubmit: (
-    campaign: CampaignInput,
-    // ...existing code...
-  ) => void;
+  onSubmit: (campaign: CampaignInput, targetLocales: string[], imageFile: File | null) => Promise<void>;
   loading?: boolean;
 }
 export function CampaignInputForm({ onSubmit, loading }: Props) {
@@ -107,9 +104,8 @@ export function CampaignInputForm({ onSubmit, loading }: Props) {
     onSubmit(campaign, targetLocales, imageFile);
   };
 
-  const handleToneChange = (locale: string, tone: string) => {
-    setLocaleTones((prev) => ({ ...prev, [locale]: tone }));
-  };
+  // Note: Locale-specific tone is applied globally via campaign.brandTone
+  // For future: per-locale tone selection can be expanded here
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
