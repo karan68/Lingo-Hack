@@ -1,4 +1,4 @@
-# 🌍 Cultural Context Adapter
+# 🌍 Cultural Context Adapter 2026
 
 Link of the technical doc - https://medium.com/@mekaranyadav8/buy-now-doesnt-work-in-japan-so-i-built-an-ai-that-knows-why-20ef0e4a3bd1
 Link of the walthrough - https://drive.google.com/file/d/131vlVCMVemq35Bq9EofOBqH4yQ3bpf8y/view?usp=sharing
